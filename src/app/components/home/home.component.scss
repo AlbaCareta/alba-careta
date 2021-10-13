@@ -1,0 +1,31 @@
+.hero_ {
+  @apply flex flex-col relative w-full overflow-hidden;
+  height: 100vh;
+  max-height: 1178px;
+  color: white;
+}
+.hero_ h1 {
+  @apply absolute;
+  top: 64px;
+  left: 64px;
+  font-family: manrope_regular, sans-serif;
+  font-size: 15.48vw;
+  line-height: 12.08vw;
+  white-space: pre-line;
+}
+.menu_ {
+  @apply flex flex-col;
+}
+.menu_line_ {
+  width: 36px;
+  height: 1px;
+  background-color: white;
+}
+.lang_item_ {
+  font-family: manrope_regular, sans-serif;
+  font-size: 16px;
+}
+.hero_link_ {
+  font-family: manrope_regular, sans-serif;
+  font-size: 22px;
+}
