@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { UserService } from './services/user.service'
 
 @Component({
@@ -10,14 +11,20 @@ export class AppComponent implements OnInit {
 
   title = 'Alba Careta'
 
-  constructor(private userService: UserService) {
+  constructor(private afAuth: AngularFireAuth, private userService: UserService) {
   }
 
   ngOnInit(): void {
-    if (localStorage.getItem('language') === null) {
-      this.userService.userLanguage = 'ca'
-    } else {
-      this.userService.userLanguage = localStorage.getItem('language')
-    }
+    this.afAuth.authState.subscribe((user) => {
+      if (!user) {
+        this.afAuth.signInAnonymously()
+          .then()
+          .catch(err => {
+            console.log(err)
+          })
+      } else {
+        this.userService.loadFirestoreContent()
+      }
+    })
   }
 }
