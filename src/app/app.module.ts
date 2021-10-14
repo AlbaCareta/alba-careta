@@ -15,7 +15,7 @@ import { HomeComponent } from './components/home/home.component'
     HomeComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule
   ],
   providers: [

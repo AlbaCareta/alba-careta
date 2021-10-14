@@ -1,6 +1,7 @@
 [build]
-  publish = "dist/alba-careta"
-  command = "ng build"
+  command = "npm run prerender"
+  functions = "./functions"
+  publish = "dist/angular-universal-pre-render/browser"
 [[redirects]]
   from = "/*"
   to = "/index.html"
