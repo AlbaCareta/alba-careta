@@ -8,7 +8,7 @@ import { UserService } from '../../services/user.service'
 })
 export class HomeComponent implements OnInit {
 
-  lang
+  lang: string
 
   elements = {
     h1: 'Alba\n Careta',
