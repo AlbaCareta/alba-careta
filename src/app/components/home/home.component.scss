@@ -5,16 +5,14 @@
   color: white;
 }
 .hero_ h1 {
-  @apply absolute;
-  top: 64px;
-  left: 64px;
+  @apply absolute top-12 left-16;
   font-family: manrope_regular, sans-serif;
   font-size: 15.48vw;
   line-height: 12.08vw;
   white-space: pre-line;
 }
 .menu_ {
-  @apply flex flex-col;
+  @apply flex flex-col cursor-pointer;
 }
 .menu_line_ {
   width: 36px;
@@ -22,10 +20,12 @@
   background-color: white;
 }
 .lang_item_ {
+  @apply cursor-pointer;
   font-family: manrope_regular, sans-serif;
   font-size: 16px;
 }
 .hero_link_ {
+  @apply cursor-pointer;
   font-family: manrope_regular, sans-serif;
   font-size: 22px;
 }
