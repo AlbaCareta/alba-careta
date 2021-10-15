@@ -2,20 +2,38 @@
   <div class="hero_">
     <img class="w-full h-full object-cover" src="assets/images/home.jpg" alt="Alba Careta">
     <h1>{{elements.h1}}</h1>
-    <div class="flex flex-row-reverse items-center absolute top-12 right-16">
-      <div class="menu_">
-        <div class="menu_line_ mb-2.5"></div>
-        <div class="menu_line_ mb-2.5"></div>
-        <div class="menu_line_"></div>
-      </div>
-      <div class="flex mr-8">
-        <div class="lang_item_ mr-3">Ca</div>
-        <div class="lang_item_ mr-3">Es</div>
-        <div class="lang_item_">En</div>
-      </div>
-    </div>
-    <div class="hero_link_ absolute bottom-8 left-16">{{elements.hero_01[lang]}}</div>
-    <div class="hero_link_ absolute bottom-8 right-16">{{elements.hero_02[lang]}}</div>
+    <app-menu></app-menu>
+    <div class="hero_link_ absolute bottom-8" id="hero_link_left"
+         (mouseenter)="elementsAnimation(0, escolta)"
+         (mouseleave)="elementsAnimation(1, escolta)" #escolta>{{elements.hero_01[lang]}}</div>
+    <div class="hero_link_ absolute bottom-8" id="hero_link_right"
+         (mouseenter)="elementsAnimation(0, concerts)"
+         (mouseleave)="elementsAnimation(1, concerts)" #concerts>{{elements.hero_02[lang]}}</div>
     <img class="arrow_" src="assets/images/arrow.svg" alt="">
   </div>
+  <div class="concerts_">
+    <ul class="concerts_list_">
+      <ng-container *ngFor="let item of concertsArray">
+        <div class="concert_item_">
+          <div class="flex mt-6">
+            <div class="flex flex-col">
+              <div class="concert_item_date_">{{item['date']['seconds'] * 1000 | date:'dd.MM.yyyy'}}</div>
+              <div class="concert_item_date_">{{item['time']}}</div>
+            </div>
+            <div class="flex flex-col ml-20">
+              <h3>{{item['title']}}</h3>
+              <h4>{{item['place']}}</h4>
+            </div>
+          </div>
+          <div class="concert_item_info_"
+               (mouseenter)="elementsAnimation(0, info)"
+               (mouseleave)="elementsAnimation(1, info)" #info>info</div>
+        </div>
+      </ng-container>
+    </ul>
+    <div class="concerts_link_"
+         (mouseenter)="elementsAnimation(0, concerts_link)"
+         (mouseleave)="elementsAnimation(1, concerts_link)" #concerts_link>{{elements.concerts_01[lang]}}</div>
+  </div>
 </div>
+<app-navigation></app-navigation>

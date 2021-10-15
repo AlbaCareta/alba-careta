@@ -1,36 +1,77 @@
 .hero_ {
   @apply flex flex-col relative w-full overflow-hidden;
   height: 100vh;
-  max-height: 1178px;
+  max-height: 997px;
   color: white;
 }
 .hero_ h1 {
-  @apply absolute top-12 left-16;
+  @apply absolute top-12;
+  left: 4.8vw;
   font-family: manrope_regular, sans-serif;
   font-size: 15.48vw;
   line-height: 12.08vw;
   white-space: pre-line;
 }
-.menu_ {
-  @apply flex flex-col cursor-pointer;
-}
-.menu_line_ {
-  width: 36px;
-  height: 1px;
-  background-color: white;
-}
-.lang_item_ {
-  @apply cursor-pointer;
-  font-family: manrope_regular, sans-serif;
-  font-size: 16px;
-}
 .hero_link_ {
   @apply cursor-pointer;
   font-family: manrope_regular, sans-serif;
   font-size: 22px;
+  text-underline-offset: 6px;
+}
+#hero_link_left {
+  left: 4.8vw;
+}
+#hero_link_right {
+  right: 4.8vw;
 }
 .arrow_ {
   @apply absolute bottom-8;
   left: 50%;
   transform: translateX(-50%);
+}
+.concerts_ {
+  @apply flex flex-col items-center text-white;
+  background-color: #013964;
+  font-family: manrope_regular, sans-serif;
+}
+.concerts_list_ {
+  @apply flex flex-col mt-16 mb-10;
+  width: 90.4vw;
+  border-top: 1px solid #E5E5E5;
+}
+.concert_item_ {
+  @apply flex justify-between w-full pb-6;
+  border-bottom: 1px solid #E5E5E5;
+}
+.concert_item_date_ {
+  min-width: 182px;
+  font-size: 20px;
+  line-height: 26px;
+}
+.concert_item_ h3 {
+  max-width: 64vw;
+  font-size: 32px;
+  line-height: 40px;
+}
+.concert_item_ h4 {
+  max-width: 64vw;
+  font-size: 22px;
+  color: #B5B5B5;
+}
+.concert_item_info_ {
+  @apply cursor-pointer;
+  align-self: flex-end;
+  font-size: 20px;
+  text-underline-offset: 3px;
+  text-decoration-color: #B5B5B5;
+  text-decoration-thickness: 1px;
+}
+.concerts_link_ {
+  @apply mx-auto mb-12 cursor-pointer;
+  width: 90.4vw;
+  align-self: flex-start;
+  font-size: 30px;
+  text-underline-offset: 6px;
+  // text-decoration-color: #B5B5B5;
+  text-decoration-thickness: 1px;
 }

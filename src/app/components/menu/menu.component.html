@@ -1,0 +1,22 @@
+<div class="layout_">
+  <div class="menu_" (click)="openClose()">
+    <div class="menu_line_ mb-2.5" #line_top></div>
+    <div class="menu_line_ mb-2.5" #line_center></div>
+    <div class="menu_line_" #line_bottom></div>
+    <div class="menu_cross_line_" #line_cross></div>
+  </div>
+  <div class="flex mr-8">
+    <div class="lang_item_ mr-3"
+         (mouseenter)="languageAnimation(0, 'ca')"
+         (mouseleave)="languageAnimation(1, 'ca')"
+         (click)="selectLanguage('ca')" #ca>Ca</div>
+    <div class="lang_item_ mr-3"
+         (mouseenter)="languageAnimation(0, 'es')"
+         (mouseleave)="languageAnimation(1, 'es')"
+         (click)="selectLanguage('es')" #es>Es</div>
+    <div class="lang_item_"
+         (mouseenter)="languageAnimation(0, 'en')"
+         (mouseleave)="languageAnimation(1, 'en')"
+         (click)="selectLanguage('en')" #en>En</div>
+  </div>
+</div>

@@ -9,7 +9,9 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth'
 
 import { UserService } from './services/user.service'
 
-import { HomeComponent } from './components/home/home.component'
+import { HomeComponent } from './components/home/home.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { MenuComponent } from './components/menu/menu.component'
 
 
 const firebaseConfig = {
@@ -25,7 +27,9 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    NavigationComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

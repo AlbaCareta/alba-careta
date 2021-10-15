@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 import { UserService } from '../../services/user.service'
+import { gsap } from 'gsap'
+import { CSSPlugin } from 'gsap/CSSPlugin'
+
+gsap.registerPlugin(CSSPlugin)
 
 @Component({
   selector: 'app-home',
@@ -9,6 +13,7 @@ import { UserService } from '../../services/user.service'
 export class HomeComponent implements OnInit {
 
   lang: string
+  concertsArray
 
   elements = {
     h1: 'Alba\n Careta',
@@ -21,6 +26,11 @@ export class HomeComponent implements OnInit {
       ca: 'Concerts',
       es: 'Conciertos',
       en: 'Concerts'
+    },
+    concerts_01: {
+      ca: 'més concerts',
+      es: 'más conciertos',
+      en: 'more concerts'
     }
   }
 
@@ -29,6 +39,20 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Concerts
+    this.userService.concertsLoaded.subscribe((loaded) => {
+      if (loaded) {
+        this.concertsArray = this.userService.concerts.splice(0, 4)
+      }
+    })
+  }
+
+  elementsAnimation(action: number, elem: HTMLElement): void {
+    if (action === 0) {
+      gsap.set(elem, {textDecorationLine: 'underline'})
+    } else {
+      gsap.set(elem, {textDecorationLine: 'none'})
+    }
   }
 
 }
