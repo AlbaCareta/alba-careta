@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core'
+import { Component, ElementRef, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild } from '@angular/core'
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { UserService } from './services/user.service'
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
@@ -15,10 +15,12 @@ export class AppComponent implements OnInit, OnDestroy {
   @ViewChild('main', {static: true}) mainER: ElementRef
 
   constructor(private afAuth: AngularFireAuth,
-              private userService: UserService) {
+              private userService: UserService,
+              @Inject(PLATFORM_ID) private platformId: any) {
   }
 
   ngOnInit(): void {
+
     this.afAuth.authState.subscribe((user) => {
       if (!user) {
         this.afAuth.signInAnonymously()

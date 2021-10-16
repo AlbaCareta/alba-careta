@@ -1,7 +1,8 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { UserService } from '../../services/user.service'
 import { gsap } from 'gsap'
-import {Router} from '@angular/router'
+import { Router } from '@angular/router'
+import { isPlatformBrowser } from '@angular/common'
 
 @Component({
   selector: 'app-navigation',
@@ -88,7 +89,9 @@ export class NavigationComponent implements OnInit, AfterViewInit {
 
   @ViewChild('layout') layoutER: ElementRef
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(@Inject(PLATFORM_ID) private platformId: any,
+              private userService: UserService,
+              private router: Router) {
     this.lang = userService.userLanguage
   }
 
@@ -97,10 +100,12 @@ export class NavigationComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.userService.showNavigation.subscribe((value) => {
-      if (value) {
-        gsap.to(this.layoutER.nativeElement, {opacity: 1, pointerEvents: 'auto', duration: .24})
-      } else {
-        gsap.to(this.layoutER.nativeElement, {opacity: 0, pointerEvents: 'none', duration: .24})
+      if (isPlatformBrowser(this.platformId)) {
+        if (value) {
+          gsap.to(this.layoutER.nativeElement, {opacity: 1, pointerEvents: 'auto', duration: .24})
+        } else {
+          gsap.to(this.layoutER.nativeElement, {opacity: 0, pointerEvents: 'none', duration: .24})
+        }
       }
     })
   }

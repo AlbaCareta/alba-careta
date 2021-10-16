@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
 import { UserService } from '../../services/user.service'
 import { gsap } from 'gsap'
 import { CSSPlugin } from 'gsap/CSSPlugin'
-import { Router } from '@angular/router'
 
 gsap.registerPlugin(CSSPlugin)
 

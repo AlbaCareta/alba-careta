@@ -1,7 +1,8 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { UserService } from '../../services/user.service'
 import { Router } from '@angular/router'
 import { gsap } from 'gsap'
+import { isPlatformBrowser } from '@angular/common'
 
 @Component({
   selector: 'app-menu',
@@ -23,7 +24,8 @@ export class MenuComponent implements OnInit, AfterViewInit {
   @ViewChild('line_bottom') lineBottomER: ElementRef
   @ViewChild('line_cross') lineCrossER: ElementRef
 
-  constructor(private userService: UserService,
+  constructor(@Inject(PLATFORM_ID) private platformId: any,
+              private userService: UserService,
               private router: Router) {
     this.lang = userService.userLanguage
   }
@@ -68,12 +70,14 @@ export class MenuComponent implements OnInit, AfterViewInit {
   }
 
   languageUnderline(elem: string): void {
-    if (elem === 'es') {
-      gsap.set(this.esER.nativeElement, {textDecorationLine: 'underline'})
-    } else if (elem === 'en') {
-      gsap.set(this.enER.nativeElement, {textDecorationLine: 'underline'})
-    } else {
-      gsap.set(this.caER.nativeElement, {textDecorationLine: 'underline'})
+    if (isPlatformBrowser(this.platformId)) {
+      if (elem === 'es') {
+        gsap.set(this.esER.nativeElement, {textDecorationLine: 'underline'})
+      } else if (elem === 'en') {
+        gsap.set(this.enER.nativeElement, {textDecorationLine: 'underline'})
+      } else {
+        gsap.set(this.caER.nativeElement, {textDecorationLine: 'underline'})
+      }
     }
   }
 
