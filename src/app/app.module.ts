@@ -11,7 +11,9 @@ import { UserService } from './services/user.service'
 
 import { HomeComponent } from './components/home/home.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { MenuComponent } from './components/menu/menu.component'
+import { MenuComponent } from './components/menu/menu.component';
+import { ConcertsComponent } from './components/concerts/concerts.component';
+import { FooterComponent } from './components/footer/footer.component'
 
 
 const firebaseConfig = {
@@ -29,7 +31,9 @@ const firebaseConfig = {
     AppComponent,
     HomeComponent,
     NavigationComponent,
-    MenuComponent
+    MenuComponent,
+    ConcertsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

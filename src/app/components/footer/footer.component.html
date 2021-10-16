@@ -1,0 +1,24 @@
+<div class="layout_">
+  <div class="top_">
+    <ul>
+      <li>Youtube</li>
+      <li>Instagram</li>
+      <li>Spotify</li>
+      <li>Facebook</li>
+    </ul>
+  </div>
+  <div class="bottom_">
+    <div class="bottom_wrap_">
+      <div class="legal_">
+        <div class="legal_link_"
+             (mouseenter)="elementsAnimation(0, link)"
+             (mouseleave)="elementsAnimation(1, link)" #link>{{elements.legal[lang]}}</div>
+      </div>
+      <div class="credits_">
+        <div class="mr-8">Alba Careta ©</div>
+        <div class="mr-4">erikaescudero.com</div>
+        <div>jordicolome.com</div>
+      </div>
+    </div>
+  </div>
+</div>

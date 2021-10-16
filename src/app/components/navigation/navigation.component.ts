@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { UserService } from '../../services/user.service'
 import { gsap } from 'gsap'
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-navigation',
@@ -11,6 +12,18 @@ export class NavigationComponent implements OnInit, AfterViewInit {
 
   lang
   items = [
+    {
+      name: {
+        ca: 'Home',
+        es: 'Home',
+        en: 'Home'
+      },
+      route: {
+        ca: '',
+        es: '/es/',
+        en: '/en/'
+      }
+    },
     {
       name: {
         ca: 'Biografia',
@@ -49,18 +62,6 @@ export class NavigationComponent implements OnInit, AfterViewInit {
     },
     {
       name: {
-        ca: 'Galeria',
-        es: 'Galería',
-        en: 'Gallery'
-      },
-      route: {
-        ca: '/galeria/',
-        es: '/es/galeria/',
-        en: '/en/gallery/'
-      }
-    },
-    {
-      name: {
         ca: 'Albums',
         es: 'Álbumes',
         en: 'Albums'
@@ -87,7 +88,7 @@ export class NavigationComponent implements OnInit, AfterViewInit {
 
   @ViewChild('layout') layoutER: ElementRef
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
     this.lang = userService.userLanguage
   }
 
@@ -110,6 +111,13 @@ export class NavigationComponent implements OnInit, AfterViewInit {
     } else {
       gsap.set(elem, {textDecorationLine: 'none'})
     }
+  }
+
+  navigateTo(route: string): void {
+    this.router.navigate([route]).then(() => {
+      this.userService.showNavigation.next(false)
+    })
+
   }
 
 }

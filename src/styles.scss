@@ -5,16 +5,26 @@
 
 @font-face {
   font-family: "manrope_regular";
-  font-weight: normal;
   src: url("assets/fonts/Manrope-Regular.woff") format("woff");
 }
 
 html, body {
   height: 100%;
+  font-family: 'Manrope', sans-serif;
 }
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #446897;
+}
+h1, h2, h3, h4, h5, p {
+  margin: 0;
+  padding: 0;
+}
+ul, li {
+  list-style: none;
+}
+:focus {
+  outline: none;
 }

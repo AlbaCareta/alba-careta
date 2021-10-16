@@ -36,7 +36,8 @@ export class UserService {
             this.concerts.push(i)
           }
         }
-        this.concerts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        this.concerts.sort((a, b) =>
+          new Date(a.date.seconds * 1000).getTime() - new Date(b.date.seconds * 1000).getTime())
         this.concertsLoaded.next(true)
       })
       .catch(err => {

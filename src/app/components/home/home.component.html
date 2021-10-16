@@ -7,6 +7,7 @@
          (mouseenter)="elementsAnimation(0, escolta)"
          (mouseleave)="elementsAnimation(1, escolta)" #escolta>{{elements.hero_01[lang]}}</div>
     <div class="hero_link_ absolute bottom-8" id="hero_link_right"
+         (click)="navigateToConcerts()"
          (mouseenter)="elementsAnimation(0, concerts)"
          (mouseleave)="elementsAnimation(1, concerts)" #concerts>{{elements.hero_02[lang]}}</div>
     <img class="arrow_" src="assets/images/arrow.svg" alt="">
@@ -32,6 +33,7 @@
       </ng-container>
     </ul>
     <div class="concerts_link_"
+         (click)="navigateToConcerts()"
          (mouseenter)="elementsAnimation(0, concerts_link)"
          (mouseleave)="elementsAnimation(1, concerts_link)" #concerts_link>{{elements.concerts_01[lang]}}</div>
   </div>

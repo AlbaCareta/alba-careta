@@ -1,0 +1,32 @@
+<div class="layout_">
+  <app-menu></app-menu>
+  <div class="wrap_">
+    <h1>{{elements.h1[lang]}}</h1>
+    <ul class="years_">
+      <ng-container *ngFor="let item of this.concertsArray; index as i">
+        <h2>{{item['year']}}</h2>
+        <ul class="concerts_list_">
+          <ng-container *ngFor="let concert of concertsArray[i]['concerts']">
+            <div class="concert_item_">
+              <div class="flex mt-6">
+                <div class="flex flex-col">
+                  <div class="concert_item_date_">{{concert['date']['seconds'] * 1000 | date:'dd.MM.yyyy'}}</div>
+                  <div class="concert_item_date_">{{concert['time']}}</div>
+                </div>
+                <div class="flex flex-col ml-20">
+                  <h3>{{concert['title']}}</h3>
+                  <h4>{{concert['place']}}</h4>
+                </div>
+              </div>
+              <div class="concert_item_info_"
+                   (mouseenter)="elementsAnimation(0, info)"
+                   (mouseleave)="elementsAnimation(1, info)" #info>info</div>
+            </div>
+          </ng-container>
+        </ul>
+      </ng-container>
+    </ul>
+  </div>
+</div>
+<app-footer></app-footer>
+<app-navigation></app-navigation>

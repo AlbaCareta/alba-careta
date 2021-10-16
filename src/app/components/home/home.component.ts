@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { UserService } from '../../services/user.service'
 import { gsap } from 'gsap'
 import { CSSPlugin } from 'gsap/CSSPlugin'
+import { Router } from '@angular/router'
 
 gsap.registerPlugin(CSSPlugin)
 
@@ -13,7 +14,7 @@ gsap.registerPlugin(CSSPlugin)
 export class HomeComponent implements OnInit {
 
   lang: string
-  concertsArray
+  concertsArray = []
 
   elements = {
     h1: 'Alba\n Careta',
@@ -34,7 +35,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              private router: Router) {
     this.lang = userService.userLanguage
   }
 
@@ -42,7 +44,8 @@ export class HomeComponent implements OnInit {
     // Concerts
     this.userService.concertsLoaded.subscribe((loaded) => {
       if (loaded) {
-        this.concertsArray = this.userService.concerts.splice(0, 4)
+        const preArray = this.userService.concerts.map(object => ({...object}))
+        this.concertsArray = preArray.splice(0, 4)
       }
     })
   }
@@ -52,6 +55,16 @@ export class HomeComponent implements OnInit {
       gsap.set(elem, {textDecorationLine: 'underline'})
     } else {
       gsap.set(elem, {textDecorationLine: 'none'})
+    }
+  }
+
+  navigateToConcerts(): void {
+    if (this.lang === 'ca') {
+      this.router.navigate(['concerts']).then()
+    } else if (this.lang === 'es') {
+      this.router.navigate(['/es/conciertos/']).then()
+    } else if (this.lang === 'en') {
+      this.router.navigate(['/en/concerts/']).then()
     }
   }
 

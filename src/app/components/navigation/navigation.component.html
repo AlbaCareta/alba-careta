@@ -1,7 +1,8 @@
 <div class="layout_ flex flex-col justify-center items-center fixed top-0 left-0 z-20" #layout>
   <ul class="list-none">
     <ng-container *ngFor="let item of items">
-      <li (mouseenter)="elementsAnimation(0, list_item)"
+      <li (click)="navigateTo(item.route[lang])"
+          (mouseenter)="elementsAnimation(0, list_item)"
           (mouseleave)="elementsAnimation(1, list_item)" #list_item>{{item.name[lang]}}</li>
     </ng-container>
   </ul>

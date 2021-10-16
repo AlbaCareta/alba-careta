@@ -1,17 +1,21 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core'
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { UserService } from './services/user.service'
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
 
   title = 'Alba Careta'
 
-  constructor(private afAuth: AngularFireAuth, private userService: UserService) {
+  @ViewChild('main', {static: true}) mainER: ElementRef
+
+  constructor(private afAuth: AngularFireAuth,
+              private userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -26,5 +30,17 @@ export class AppComponent implements OnInit {
         this.userService.loadFirestoreContent()
       }
     })
+    this.userService.showNavigation.subscribe((value) => {
+      if (value) {
+        window.scroll(0, 0)
+        disableBodyScroll(this.mainER.nativeElement)
+      } else {
+        enableBodyScroll(this.mainER.nativeElement)
+      }
+    })
+  }
+
+  ngOnDestroy(): void {
+    clearAllBodyScrollLocks()
   }
 }

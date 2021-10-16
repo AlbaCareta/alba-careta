@@ -1,0 +1,43 @@
+.layout_ {
+  @apply flex flex-col items-center w-full cursor-default;
+}
+.top_ {
+  @apply flex flex-col items-center w-full;
+  background-color: #E5F2FF;
+  color: #83A4C7;
+}
+.top_ ul {
+  @apply flex justify-between my-10;
+  width: 90.4vw;
+}
+.top_ li {
+  @apply cursor-pointer;
+  font-size: 32px;
+  font-weight: 400;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+}
+.bottom_ {
+  @apply flex flex-col items-center w-full;
+  background-color: white;
+  color: #013964;
+}
+.bottom_wrap_ {
+  @apply flex justify-between items-center my-10;
+  width: 90.4vw;
+}
+.legal_ {
+  @apply flex;
+  font-size: 32px;
+  font-weight: normal;
+}
+.legal_link_ {
+  @apply cursor-pointer;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+}
+.credits_ {
+  @apply flex;
+  font-size: 16px;
+  font-weight: 300;
+}
