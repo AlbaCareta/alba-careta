@@ -74,3 +74,34 @@
   text-underline-offset: 6px;
   text-decoration-thickness: 1px;
 }
+.projectes_ {
+  @apply relative w-full py-20 overflow-x-scroll;
+  min-height: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  background-color: #263247;
+}
+.projectes_::-webkit-scrollbar {
+  display: none;
+}
+.projectes_container_ {
+  @apply flex flex-nowrap w-full;
+}
+.projecte_ {
+  @apply flex flex-col;
+  flex: 0 0 auto;
+  padding-right: 20px;
+  overflow: hidden;
+}
+.projecte_0_ {
+  margin-left: 4.8vw;
+}
+.projecte_image_placeholder_ {
+  width: 480px;
+  height: 320px;
+}
+.projecte_ h2 {
+  @apply text-white mt-4 ml-8;
+  font-size: 24px;
+  font-weight: 400;
+}

@@ -1,0 +1,49 @@
+.layout_ {
+  @apply flex flex-col w-full;
+}
+.top_ {
+  @apply flex flex-col items-center w-full text-white;
+  height: 100vh;
+  max-height: 954px;
+}
+.top_ img {
+  @apply absolute w-full h-full top-0 left-0 object-cover;
+}
+h1 {
+  @apply absolute top-11;
+  left: 4.8vw;
+  font-size: 64px;
+  font-weight: 400;
+}
+h2 {
+  @apply absolute;
+  top: 48%;
+  left: 49%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 160px;
+}
+.list_ {
+  @apply flex flex-col absolute;
+  top: 168px;
+  left: 4.8vw;
+  font-size: 64px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.list_ li {
+  @apply cursor-pointer;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 3px;
+}
+.link_ {
+  @apply cursor-pointer;
+  font-family: manrope_regular, sans-serif;
+  font-size: 22px;
+  text-underline-offset: 6px;
+}
+#link_left {
+  left: 4.8vw;
+}
+#link_right {
+  right: 4.8vw;
+}

@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core'
 import { Router } from '@angular/router'
 import { UserService } from '../../services/user.service'
 import { gsap } from 'gsap'
 import { CSSPlugin } from 'gsap/CSSPlugin'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(CSSPlugin)
+gsap.registerPlugin(ScrollTrigger, CSSPlugin)
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,7 @@ export class HomeComponent implements OnInit {
 
   lang: string
   concertsArray = []
+  projectesArray = []
 
   elements = {
     h1: 'Alba\n Careta',
@@ -35,6 +37,13 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  scrollTween
+
+  @ViewChild('home') homeER: ElementRef
+  @ViewChild('projectes') projectesER: ElementRef
+  @ViewChild('projectes_container') projectesContainerER: ElementRef
+  @ViewChild('footer') footerER: ElementRef
+
   constructor(private userService: UserService,
               private router: Router) {
     this.lang = userService.userLanguage
@@ -47,6 +56,10 @@ export class HomeComponent implements OnInit {
         const preArray = this.userService.concerts.map(object => ({...object}))
         this.concertsArray = preArray.splice(0, 4)
       }
+    })
+    // Projectes
+    this.userService.projectesLoaded.subscribe((loaded) => {
+      this.projectesArray = this.userService.projectes
     })
   }
 

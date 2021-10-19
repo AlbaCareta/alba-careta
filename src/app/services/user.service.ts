@@ -11,12 +11,16 @@ export class UserService {
 
   concerts = []
   concertsLoaded: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
+
+  projectes = []
+  projectesLoaded: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
+
   showNavigation: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
 
   constructor(private readonly afs: AngularFirestore) { }
 
   loadFirestoreContent(): void {
-
+    // Concerts
     const preFilterArray = []
     const dateRef = new Date()
     dateRef.setHours(-24, 0, 0, 0)
@@ -43,5 +47,26 @@ export class UserService {
       .catch(err => {
         console.log(err)
       })
+
+    // Projectes
+    this.afs.firestore
+      .collection('projectes')
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          if (!doc.data()['private']) {
+            this.projectes.push(doc.data())
+          }
+        })
+      })
+      .then(() => {
+        this.projectes.sort((a, b) => a['order'] - b['order'])
+        this.projectesLoaded.next(true)
+        console.log(this.projectes)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+
   }
 }

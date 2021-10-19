@@ -1,4 +1,4 @@
-<div class="flex flex-col cursor-default">
+<div class="flex flex-col cursor-default overflow-hidden" #home>
   <div class="hero_">
     <img class="w-full h-full object-cover" src="assets/images/home.jpg" alt="Alba Careta">
     <h1>{{elements.h1}}</h1>
@@ -37,5 +37,19 @@
          (mouseenter)="elementsAnimation(0, concerts_link)"
          (mouseleave)="elementsAnimation(1, concerts_link)" #concerts_link>{{elements.concerts_01[lang]}}</div>
   </div>
+  <div class="projectes_" #projectes>
+    <div class="projectes_container_" #projectes_container>
+      <ng-container *ngFor="let item of projectesArray; index as i">
+        <div class="projecte_" [ngClass]="[i == 0? 'projecte_0_': '']">
+          <div class="projecte_image_placeholder_">
+            <img class="h-full" src="{{item['image']}}" alt="{{item['title']}}">
+          </div>
+          <h2>{{item['title']}}</h2>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <app-footer #footer></app-footer>
+  <app-navigation></app-navigation>
 </div>
-<app-navigation></app-navigation>
+

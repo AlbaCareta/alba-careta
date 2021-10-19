@@ -13,7 +13,9 @@ import { HomeComponent } from './components/home/home.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ConcertsComponent } from './components/concerts/concerts.component';
-import { FooterComponent } from './components/footer/footer.component'
+import { FooterComponent } from './components/footer/footer.component';
+import { ProjectesComponent } from './components/projectes/projectes.component';
+import { ProjecteComponent } from './components/projecte/projecte.component'
 
 
 const firebaseConfig = {
@@ -33,7 +35,9 @@ const firebaseConfig = {
     NavigationComponent,
     MenuComponent,
     ConcertsComponent,
-    FooterComponent
+    FooterComponent,
+    ProjectesComponent,
+    ProjecteComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

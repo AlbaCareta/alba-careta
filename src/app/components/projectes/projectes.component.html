@@ -1,0 +1,21 @@
+<div class="layout_">
+  <div class="top_">
+    <img src="assets/images/projectes.jpg" alt="Projectes - Alba Careta">
+    <h1>Projectes</h1>
+    <app-menu></app-menu>
+    <ul class="list_">
+      <ng-container *ngFor="let item of projectes">
+        <li (mouseenter)="elementsAnimation(0, projecte)"
+            (mouseleave)="elementsAnimation(1, projecte)" #projecte>{{item['title']}}</li>
+      </ng-container>
+    </ul>
+    <div class="link_ absolute bottom-8" id="link_left"
+         (mouseenter)="elementsAnimation(0, home)"
+         (mouseleave)="elementsAnimation(1, home)" #home>{{elements.link_01[lang]}}</div>
+    <div class="link_ absolute bottom-8" id="link_right"
+         (click)="navigateToConcerts()"
+         (mouseenter)="elementsAnimation(0, concerts)"
+         (mouseleave)="elementsAnimation(1, concerts)" #concerts>{{elements.link_02[lang]}}</div>
+  </div>
+</div>
+<app-navigation></app-navigation>
