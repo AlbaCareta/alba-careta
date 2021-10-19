@@ -7,15 +7,15 @@
 .hero_ h1 {
   @apply absolute top-12;
   left: 4.8vw;
-  font-family: manrope_regular, sans-serif;
   font-size: 15.48vw;
+  font-weight: 400;
   line-height: 12.08vw;
   white-space: pre-line;
 }
 .hero_link_ {
   @apply cursor-pointer;
-  font-family: manrope_regular, sans-serif;
   font-size: 22px;
+  font-weight: 400;
   text-underline-offset: 6px;
 }
 #hero_link_left {
@@ -32,7 +32,6 @@
 .concerts_ {
   @apply flex flex-col items-center text-white;
   background-color: #013964;
-  font-family: manrope_regular, sans-serif;
 }
 .concerts_list_ {
   @apply flex flex-col mt-16 mb-10;
