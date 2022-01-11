@@ -11,7 +11,7 @@ export class FooterComponent implements OnInit {
 
   lang
 
-  elements = {
+  tags = {
     legal: {
       ca: 'Avís legal',
       es: 'Aviso legal',

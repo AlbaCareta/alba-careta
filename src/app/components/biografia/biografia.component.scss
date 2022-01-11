@@ -1,0 +1,52 @@
+.hero_ {
+  @apply flex flex-col relative w-full overflow-hidden;
+  height: 100vh;
+  max-height: 862px;
+  color: white;
+}
+.hero_top_ {
+  @apply flex justify-between items-start mt-16 mx-auto;
+  width: 90vw;
+}
+.hero_ h1 {
+  @apply z-10;
+  font-size: 15.48vw;
+  font-weight: 400;
+  line-height: 15.48vw;
+  white-space: pre-line;
+  margin: 0;
+}
+.hero_menu_ {
+  @apply z-50;
+}
+.content_ {
+  @apply flex flex-col w-full pt-20;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 48px;
+  color: white;
+  background-color: #013964;
+}
+.content_text_ {
+  @apply flex flex-col mb-24;
+  width: 64vw;
+  margin-left: 5vw;
+}
+a {
+  @apply mb-12;
+  margin-left: 5vw;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+}
+.banner_ {
+  @apply flex flex-col justify-center items-center;
+  color: #013964;
+  background-color: #E5E5E5;
+}
+.banner_text_ {
+  @apply py-16;
+  font-weight: 600;
+  font-size: 64px;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+}

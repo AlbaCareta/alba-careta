@@ -1,0 +1,29 @@
+<div class="layout_">
+  <div class="wrap_">
+    <app-menu></app-menu>
+    <h1>{{tags.h1[lang]}}</h1>
+    <div class="card_ mt-20">
+      <h2>Management</h2>
+      <h3>Diàspora Colab</h3>
+      <a href="mailto:info@diasporacolab.com" target="_blank">info@diasporacolab.com</a>
+      <h3>Alba Ramírez +34 638187816</h3>
+      <h3>Olivia Casas +34 605792214</h3>
+    </div>
+    <div class="card_ mt-10">
+      <h2>{{tags.press[lang]}}</h2>
+      <h3>Carles Moreno (Segell Microscopi)</h3>
+      <a href="mailto:cmoreno@microscopi.cat" target="_blank">icmoreno@microscopi.cat</a>
+      <h3>+34 670 051 453</h3>
+    </div>
+    <div class="form_" [formGroup]="formGroup">
+      <div class="form_sp_"></div>
+      <h2>{{tags.form.h2[lang]}}</h2>
+      <input type="text" formControlName="nomFC" placeholder="{{tags.form.name[lang]}}">
+      <input type="email" formControlName="correuFC" placeholder="{{tags.form.mail[lang]}}">
+      <textarea rows="6" placeholder="{{tags.form.message[lang]}}"></textarea>
+      <div class="button_">{{tags.form.send[lang]}}</div>
+    </div>
+  </div>
+  <app-footer #footer></app-footer>
+  <app-navigation></app-navigation>
+</div>

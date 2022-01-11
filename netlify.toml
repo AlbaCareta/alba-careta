@@ -2,4 +2,3 @@
   command = "npm run prerender"
   functions = "./functions"
   publish = "dist/alba-careta/browser"
-

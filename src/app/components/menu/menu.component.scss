@@ -1,6 +1,7 @@
 .layout_ {
-  @apply flex flex-row-reverse items-center absolute top-12 z-50 text-white;
-  right: 4.8vw;
+  @apply flex flex-row-reverse items-center text-white;
+  /*@apply flex flex-row-reverse items-center absolute top-12 z-50 text-white;
+  right: 4.8vw;*/
 }
 .menu_ {
   @apply flex flex-col relative cursor-pointer;

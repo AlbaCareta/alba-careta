@@ -1,0 +1,32 @@
+<div class="flex flex-col cursor-default overflow-hidden">
+  <div class="hero_">
+    <img class="absolute top-0 left-0 w-full h-full object-cover" src="assets/images/biografia.jpg" alt="Alba Careta">
+    <div class="hero_top_">
+      <h1>{{tags.h1[lang]}}</h1>
+      <div class="hero_menu_">
+        <app-menu></app-menu>
+      </div>
+    </div>
+  </div>
+  <div class="content_">
+    <div class="content_text_">
+      <p [innerHTML]="biografia[lang]"></p>
+    </div>
+    <ul class="mb-32">
+      <li>
+        <a href="" target="_blank">Management</a>
+      </li>
+      <li>
+        <a href="" target="_blank">Instagram</a>
+      </li>
+      <li>
+        <a href="" target="_blank">Spotify</a>
+      </li>
+    </ul>
+  </div>
+  <div class="banner_">
+    <div class="banner_text_" (click)="routeContacte()">contacte</div>
+  </div>
+  <app-footer></app-footer>
+  <app-navigation></app-navigation>
+</div>

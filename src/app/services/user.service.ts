@@ -62,7 +62,6 @@ export class UserService {
       .then(() => {
         this.projectes.sort((a, b) => a['order'] - b['order'])
         this.projectesLoaded.next(true)
-        console.log(this.projectes)
       })
       .catch(err => {
         console.log(err)

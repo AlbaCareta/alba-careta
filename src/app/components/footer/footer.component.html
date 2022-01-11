@@ -1,23 +1,27 @@
 <div class="layout_">
-  <div class="top_">
-    <ul>
-      <li>Youtube</li>
-      <li>Instagram</li>
-      <li>Spotify</li>
-      <li>Facebook</li>
-    </ul>
-  </div>
-  <div class="bottom_">
-    <div class="bottom_wrap_">
+  <div class="wrap_">
+    <div class="flex">
       <div class="legal_">
         <div class="legal_link_"
              (mouseenter)="elementsAnimation(0, link)"
-             (mouseleave)="elementsAnimation(1, link)" #link>{{elements.legal[lang]}}</div>
+             (mouseleave)="elementsAnimation(1, link)" #link>{{tags.legal[lang]}}</div>
       </div>
+      <ul>
+        <li>Youtube</li>
+        <li>Instagram</li>
+        <li>Spotify</li>
+        <li>Facebook</li>
+      </ul>
+    </div>
+    <div class="flex items-center">
       <div class="credits_">
-        <div class="mr-8">Alba Careta ©</div>
-        <div class="mr-4">erikaescudero.com</div>
-        <div>jordicolome.com</div>
+        <div class="mr-8 font-normal">Alba Careta ©</div>
+        <div class="font-bold">
+          Disseny&nbsp;
+          <a href="http://erikaescudero.com" target="_blank">erikaescudero.com</a>
+          &
+          <a href="https://www.jordicolome.com">jordicolome.com</a>
+        </div>
       </div>
     </div>
   </div>

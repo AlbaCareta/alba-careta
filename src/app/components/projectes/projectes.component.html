@@ -1,21 +1,20 @@
 <div class="layout_">
   <div class="top_">
-    <img src="assets/images/projectes.jpg" alt="Projectes - Alba Careta">
+    <img class="top_image_" src="assets/images/projectes.jpg" alt="Projectes - Alba Careta">
     <h1>Projectes</h1>
-    <app-menu></app-menu>
-    <ul class="list_">
-      <ng-container *ngFor="let item of projectes">
+    <div class="top_menu_">
+      <app-menu></app-menu>
+    </div>
+    <ul class="list_" #list>
+      <ng-container *ngFor="let item of projectes[projectesIndex]">
         <li (mouseenter)="elementsAnimation(0, projecte)"
             (mouseleave)="elementsAnimation(1, projecte)" #projecte>{{item['title']}}</li>
       </ng-container>
     </ul>
-    <div class="link_ absolute bottom-8" id="link_left"
-         (mouseenter)="elementsAnimation(0, home)"
-         (mouseleave)="elementsAnimation(1, home)" #home>{{elements.link_01[lang]}}</div>
-    <div class="link_ absolute bottom-8" id="link_right"
-         (click)="navigateToConcerts()"
-         (mouseenter)="elementsAnimation(0, concerts)"
-         (mouseleave)="elementsAnimation(1, concerts)" #concerts>{{elements.link_02[lang]}}</div>
+    <img class="arrow_left_" src="assets/images/arrow_left.svg" alt=""
+         (click)="navigateProjectes('left')" #arrow_left>
+    <img class="arrow_right_" src="assets/images/arrow_right.svg" alt=""
+         (click)="navigateProjectes('right')" #arrow_right>
   </div>
 </div>
 <app-navigation></app-navigation>

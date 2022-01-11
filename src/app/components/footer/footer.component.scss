@@ -1,5 +1,38 @@
 .layout_ {
-  @apply flex flex-col items-center w-full cursor-default;
+  @apply flex flex-col items-center w-full py-16 bg-white cursor-default;
+}
+/** {
+  border: 1px solid rebeccapurple;
+}*/
+.wrap_ {
+  @apply flex justify-between items-center;
+  width: 92vw;
+  height: 32px;
+}
+.legal_ {
+  @apply flex;
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: normal;
+  color: #013964;
+}
+.legal_link_ {
+  @apply cursor-pointer;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+}
+ul {
+  @apply flex items-center;
+  margin-left: 6vw;
+}
+li {
+  @apply cursor-pointer mr-8;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 400;
+  color: #83A4C7;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
 }
 .top_ {
   @apply flex flex-col items-center w-full;
@@ -26,18 +59,9 @@
   @apply flex justify-between items-center my-10;
   width: 90.4vw;
 }
-.legal_ {
-  @apply flex;
-  font-size: 32px;
-  font-weight: normal;
-}
-.legal_link_ {
-  @apply cursor-pointer;
-  text-underline-offset: 6px;
-  text-decoration-thickness: 1px;
-}
 .credits_ {
   @apply flex;
   font-size: 16px;
   font-weight: 300;
+  color: #013964;
 }

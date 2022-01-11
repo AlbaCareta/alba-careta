@@ -1,0 +1,59 @@
+.layout_ {
+  @apply flex flex-col w-full min-h-screen cursor-default;
+  background-color: #013964;
+  color: white;
+}
+.wrap_ {
+  @apply flex flex-col;
+  margin-left: 6vw;
+  width: 658px;
+}
+h1 {
+  @apply mt-16;
+  font-weight: 400;
+  font-size: 72px;
+  line-height: 72px;
+}
+.card_ {
+  font-size: 20px;
+  line-height: 28px;
+}
+h2 {
+  font-weight: 600;
+}
+h3, a {
+  font-weight: 300;
+}
+.form_ {
+  @apply flex flex-col w-full mt-20 pb-20;
+  font-size: 20px;
+  font-weight: 600;
+}
+.form_sp_ {
+  @apply w-full;
+  height: 1px;
+  background-color: white;
+}
+.form_ h2 {
+  @apply py-4;
+  border-bottom: 1px solid white;
+}
+input, textarea {
+  @apply py-4;
+  background-color: transparent;
+  border-bottom: 1px solid white;
+  font-size: 20px;
+  font-weight: 600;
+}
+input::placeholder, textarea::placeholder {
+  color: #809cb2;
+}
+input::-ms-input-placeholder {
+  color: #809cb2;
+}
+.button_ {
+  @apply mt-8 cursor-pointer;
+  font-size: 24px;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+}

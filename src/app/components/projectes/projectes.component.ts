@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core'
 import { Router } from '@angular/router'
 import { UserService } from '../../services/user.service'
 import { gsap } from 'gsap'
@@ -32,6 +32,11 @@ export class ProjectesComponent implements OnInit {
   }
 
   projectes = []
+  projectesIndex = 0
+
+  @ViewChild('list') listER: ElementRef
+  @ViewChild('arrow_left') arrowLeftER: ElementRef
+  @ViewChild('arrow_right') arrowRightER: ElementRef
 
   constructor(private userService: UserService,
               private router: Router) {
@@ -41,7 +46,14 @@ export class ProjectesComponent implements OnInit {
   ngOnInit(): void {
     this.userService.projectesLoaded.subscribe((loaded) => {
       if (loaded) {
-        this.projectes = this.userService.projectes
+        let i , j
+        const chunk = 4
+        for (i = 0, j = this.userService.projectes.length; i < j; i += chunk) {
+          this.projectes.push(this.userService.projectes.slice(i, i + chunk))
+        }
+        gsap.timeline({delay: .24})
+          .to(this.listER.nativeElement, {opacity: 1})
+        this.setArrowsOpacity()
       }
     })
   }
@@ -54,13 +66,40 @@ export class ProjectesComponent implements OnInit {
     }
   }
 
-  navigateToConcerts(): void {
-    if (this.lang === 'ca') {
-      this.router.navigate(['concerts']).then()
-    } else if (this.lang === 'es') {
-      this.router.navigate(['/es/conciertos/']).then()
-    } else if (this.lang === 'en') {
-      this.router.navigate(['/en/concerts/']).then()
+  navigateProjectes(direction: string): void {
+    if (direction === 'left') {
+      if (this.projectesIndex > 0) {
+        const tween_left = gsap.to(this.listER.nativeElement, {opacity: 0})
+        tween_left.eventCallback('onComplete', () => {
+          this.projectesIndex--
+          this.setArrowsOpacity()
+        })
+        gsap.timeline({delay: 1})
+          .to(this.listER.nativeElement, {opacity: 1})
+      }
+    } else if ((direction === 'right')) {
+      if (this.projectesIndex < this.projectes.length - 1) {
+        const tween_right = gsap.to(this.listER.nativeElement, {opacity: 0})
+        tween_right.eventCallback('onComplete', () => {
+          this.projectesIndex++
+          this.setArrowsOpacity()
+        })
+        gsap.timeline({delay: 1})
+          .to(this.listER.nativeElement, {opacity: 1})
+      }
+    }
+  }
+
+  setArrowsOpacity(): void {
+    if (this.projectesIndex === 0) {
+      gsap.to(this.arrowLeftER.nativeElement, {opacity: .25})
+    } else {
+      gsap.to(this.arrowLeftER.nativeElement, {opacity: 1})
+    }
+    if (this.projectesIndex === this.projectes.length - 1) {
+      gsap.to(this.arrowRightER.nativeElement, {opacity: .25})
+    } else {
+      gsap.to(this.arrowRightER.nativeElement, {opacity: 1})
     }
   }
 

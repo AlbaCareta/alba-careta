@@ -2,7 +2,9 @@
   <div class="hero_">
     <img class="w-full h-full object-cover" src="assets/images/home.jpg" alt="Alba Careta">
     <h1>{{elements.h1}}</h1>
-    <app-menu></app-menu>
+    <div class="hero_menu_">
+      <app-menu></app-menu>
+    </div>
     <div class="hero_link_ absolute bottom-8" id="hero_link_left"
          (mouseenter)="elementsAnimation(0, escolta)"
          (mouseleave)="elementsAnimation(1, escolta)" #escolta>{{elements.hero_01[lang]}}</div>
