@@ -3,13 +3,16 @@
   background-color: #013964;
   color: white;
 }
+.top_ {
+  @apply flex justify-between items-start mt-16 mx-auto;
+  width: 90vw;
+}
 .wrap_ {
   @apply flex flex-col;
-  margin-left: 6vw;
+  margin-left: 5vw;
   width: 658px;
 }
 h1 {
-  @apply mt-16;
   font-weight: 400;
   font-size: 72px;
   line-height: 72px;
